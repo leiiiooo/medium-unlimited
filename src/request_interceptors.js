@@ -1,4 +1,4 @@
-import {getTwitterReferer} from './utils';
+import { getTwitterReferer } from './utils';
 
 const urlsList = [
   'https://medium.com/*',
@@ -34,6 +34,7 @@ const urlsList = [
   'https://robinhood.engineering/*',
   'https://blog.hipolabs.com/*',
   'https://ux.shopify.com/*',
+  "https://blog.thefuntasty.com/*"
 ];
 
 export default function intercept() {
@@ -42,9 +43,9 @@ export default function intercept() {
       let newHeaders = removeHeader(details.requestHeaders, 'referer');
       newHeaders = addHeader(newHeaders, 'Referer', getTwitterReferer());
 
-      return {requestHeaders: newHeaders};
+      return { requestHeaders: newHeaders };
     }
-    return {requestHeaders: details.requestHeaders};
+    return { requestHeaders: details.requestHeaders };
   }
 
   chrome.webRequest.onBeforeSendHeaders.addListener(
@@ -64,11 +65,11 @@ export default function intercept() {
   }
 
   function removeHeader(headers, headerToRemove) {
-    return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
+    return headers.filter(({ name }) => name.toLowerCase() != headerToRemove);
   }
 
   function addHeader(headers, name, value) {
-   headers.push({name, value});
+    headers.push({ name, value });
     return headers;
   }
 }

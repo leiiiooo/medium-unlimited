@@ -3,12 +3,14 @@
 
 Code repository for the browser extension to unlock the articles behind the medium.com membership paywall.
 
-Try the production version of the extension here: 
+Try the production version of the extension here:
 
 For Chrome: https://manojvivek.github.io/medium-unlimited/download/
 
 For Firefox: https://addons.mozilla.org/en-US/firefox/addon/medium-unlimited-read-for-free
 
+# Add New WebSite Host
+If u want to add some
 
 # Development
 

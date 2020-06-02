@@ -7,41 +7,45 @@ layout: default
 
   {% for post in paginator.posts%}
   <div class="post postContent">
-    <div  class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <div class="postDate"><time datetime="{{ post.date | date_to_xmlschema }}"
+        itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time>
     </div>
     <div class="postTag">
       {{post.tag}}
     </div>
     <br>
     <div class="postTitle">
-    <a class='postLink' href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
+      <a class='postLink' href="{{site.url}}{{site.baseurl}}{{post.url}}">{{post.title}}</a>
     </div>
     <div class="postExt">
-   {{ post.content | strip_html | truncate:200}}
+      {{ post.content | strip_html | truncate:200}}
     </div>
   </div>
 
   {% endfor %}
   {% if paginator.total_pages > 1 %}
-    <nav class="pagination">
-      {% if paginator.previous_page %}
-        <a class="paginationLink" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% endif %}
+  <nav class="pagination">
+    {% if paginator.previous_page %}
+    <a class="paginationLink"
+      href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+    {% endif %}
 
     {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-        <em class="paginationLink paginationLinkCurrent">{{ page }}</em>
-      {% elsif page == 1 %}
-        <a class="paginationLink" href="/">{{ page }}</a>
-      {% else %}
-        <a class="paginationLink" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
+    {% if page == paginator.page %}
+    <em class="paginationLink paginationLinkCurrent">{{ page }}</em>
+    {% elsif page == 1 %}
+    <a class="paginationLink" href="/">{{ page }}</a>
+    {% else %}
+    <a class="paginationLink"
+      href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
     {% endfor %}
 
     {% if paginator.next_page %}
-      <a class="paginationLink" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+    <a class="paginationLink" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next
+      &raquo;</a>
     {% endif %}
-    </nav>
+  </nav>
   {% endif %}
   <!--<ul class="post-list">
     {% for post in site.posts %}
@@ -58,11 +62,15 @@ layout: default
   <br>
 
   <div>
-    <h2 style="text-align:center">The browser extension/addon to access the medium.com premium articles without membership subscription.</h2>
+    <h2 style="text-align:center">The browser extension/addon to access the medium.com premium articles without
+      membership subscription.</h2>
 
-    <p>This tool helps you overcome the 3 article/month limit on medium.com and allows you to read unlimited articles. Just install the extension, keep reading medium.com. No more action needed, everything is taken care for you! :)</p>
+    <p>This tool helps you overcome the 3 article/month limit on medium.com and allows you to read unlimited articles.
+      Just install the extension, keep reading medium.com. No more action needed, everything is taken care for you! :)
+    </p>
 
-    <p>The extension now supports identifying articles of external publishers on medium.com by suggesting a link to read full content with the help of a Google search.</p>
+    <p>The extension now supports identifying articles of external publishers on medium.com by suggesting a link to read
+      full content with the help of a Google search.</p>
     <p><i>***Permission to access google.com is required for the above use case***</i></p>
 
     <p>Custom domains supported are:</p>
@@ -104,10 +112,12 @@ layout: default
       <li>https://robinhood.engineering</li>
       <li>https://blog.hipolabs.com</li>
       <li>https://ux.shopify.com</li>
+      <li>https://blog.prototypr.io</li>
     </ul>
     <p>Please get in touch if you need any other custom medium domain supported.</p>
 
-    <p>This extension is open sourced here - <a href="https://github.com/manojVivek/medium-unlimited"><i class="fa fa-github"></i> https://github.com/manojVivek/medium-unlimited</a></p>
+    <p>This extension is open sourced here - <a href="https://github.com/manojVivek/medium-unlimited"><i
+          class="fa fa-github"></i> https://github.com/manojVivek/medium-unlimited</a></p>
 
   </div>
 
